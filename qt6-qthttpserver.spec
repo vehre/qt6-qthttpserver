@@ -1,3 +1,13 @@
+## START: Set by rpmautospec
+## (rpmautospec version 0.3.5)
+## RPMAUTOSPEC: autorelease, autochangelog
+%define autorelease(e:s:pb:n) %{?-p:0.}%{lua:
+    release_number = 1;
+    base_release_number = tonumber(rpm.expand("%{?-b*}%{!?-b:1}"));
+    print(release_number + base_release_number - 1);
+}%{?-e:.%{-e*}}%{?-s:.%{-s*}}%{!?-n:%{?dist}}
+## END: Set by rpmautospec
+
 %global qt_module qthttpserver
 
 #global unstable 1
@@ -9,8 +19,8 @@
 
 Summary: Qt6 - httpserver component
 Name:    qt6-%{qt_module}
-Version: 6.4.3
-Release: 2%{?dist}
+Version: 6.5.0
+Release: %autorelease
 
 License: LGPL-3.0-only OR GPL-3.0-only WITH Qt-GPL-exception-1.0
 Url:     http://qt.io
@@ -93,8 +103,8 @@ popd
 %{_qt6_libdir}/cmake/Qt6HttpServer/*.cmake
 %{_qt6_archdatadir}/mkspecs/modules/qt_lib_httpserver*.pri
 %{_qt6_libdir}/pkgconfig/*.pc
-%{_qt6_datadir}/modules/*.json
-%{_qt6_libdir}/metatypes/*.json
+%{_qt6_libdir}/qt6/modules/*.json
+%{_qt6_libdir}/qt6/metatypes/*.json
 
 %if 0%{?examples}
 %files examples
@@ -103,3 +113,5 @@ popd
 
 
 %changelog
+* Sat May 06 2023 John Doe <packager@example.com> - 6.5.0-1
+- Uncommitted changes
