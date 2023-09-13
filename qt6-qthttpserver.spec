@@ -19,7 +19,7 @@
 
 Summary: Qt6 - httpserver component
 Name:    qt6-%{qt_module}
-Version: 6.5.0
+Version: 6.5.2
 Release: %autorelease
 
 License: LGPL-3.0-only OR GPL-3.0-only WITH Qt-GPL-exception-1.0
@@ -113,5 +113,7 @@ popd
 
 
 %changelog
+* Wed Sep 13 2023 Andre Vehreschild <vehre@gmx.de> - 6.5.2-1
+- Switch to 6.5.2.
 * Sat May 06 2023 John Doe <packager@example.com> - 6.5.0-1
 - Uncommitted changes
