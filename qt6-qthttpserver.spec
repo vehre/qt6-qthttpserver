@@ -113,6 +113,9 @@ popd
 
 
 %changelog
+* Wed Sep 13 2023 Andre Vehreschild 6.5.1-1
+- Use Qt 6.5.1 for build.
+
 * Wed Sep 13 2023 Andre Vehreschild <vehre@gmx.de> - 6.5.1-1
 - Switch to 6.5.1.
 * Sat May 06 2023 John Doe <packager@example.com> - 6.5.0-1
